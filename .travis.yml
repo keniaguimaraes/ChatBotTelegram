@@ -1,10 +1,6 @@
 language: ruby
 sudo: required
 rvm:
-  - 2.3.0
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev
-script:
-  - bundle exec rake db:migrate
-  - bundle exec rake
+  - 2.2
+  - jruby
+  - 2.0.0-p247
