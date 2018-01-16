@@ -1,6 +1,5 @@
 # coding: UTF-8
 
-
 require 'telegram/bot'
 
 token = '530579348:AAGvm_xoT2vxDiFZPX8XJN-T6_sIdWhv2og'
@@ -53,7 +52,7 @@ Telegram::Bot::Client.run(token) do |bot|
 		    markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
 	        bot.api.send_message(chat_id: message.chat.id, text: 'O link da página no moodle da nossa disciplina é esse', reply_markup: markup)
 	    
-	    when 'conteudo prova','assuntos prova', 'conteudo','assunto'
+	    when 'conteudo prova','assuntos prova', 'conteudo','assunto','Conteudo prova'
 		    kb = [
 				      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'node', url: 'https://nodejs.org/en/'),
 				      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'php', url: 'https://secure.php.net/manual/pt_BR/intro-whatis.php'),
@@ -63,35 +62,18 @@ Telegram::Bot::Client.run(token) do |bot|
 		         ]
 		    markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
 	        bot.api.send_message(chat_id: message.chat.id, text: 'Seguem alguns links dos contéudos que cairão na nossa avaliação. Vamos estudar?', reply_markup: markup)    
-	    when 'data prova','data avaliacao'
+	    when 'data prova','data avaliacao','Data prova','Data avaliacao'
 	    	bot.api.send_message(chat_id: message.chat.id, text: "Nossa avalição será na data 09/01/2017, no laboratorio 143")
 	    when 'forma avaliacao','Forma avaliacao', 'forma avaliação', 'Forma avaliação'
 	    	bot.api.send_message(chat_id: message.chat.id, text: "Como avaliação para nossa disciplina utilizaremos de:
-	    	                                                       whorkshop+atividade
-	    	                                                       avaliacao
-	    	                                                       projeto final") 	
-	    
+	    	                                                       * Whorkshop+Atividades
+	    	                                                       * Avaliação
+	    	                                                       * Projeto Final") 	
+	    when 'nota', 'Nota', 'notas', 'Notas'
+	        bot.api.send_message(chat_id: message.chat.id, text: "Em configuração")
+	    when 'projeto final', 'Projeto final'
+	        bot.api.send_message(chat_id: message.chat.id, text: "Em configuração")    
 	    end
-	    
-	    
-=begin
-	    case message
-		when Telegram::Bot::Types::CallbackQuery
-	    # Here you can handle your callbacks from inline buttons
-	    if message.data == 'touch'
-	      bot.api.send_message(chat_id: message.from.id, text: "Don't touch me!")
-	    end
-	    when Telegram::Bot::Types::Message
-	    kb = [
-	      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Go to Google', url: 'https://google.com'),
-	      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Touch me', callback_data: 'touch'),
-	      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Switch to inline', switch_inline_query: 'some text')
-	    ]
-	    markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
-	    bot.api.send_message(chat_id: message.chat.id, text: 'Make a choice', reply_markup: markup)
-	    end
-=end	    
-
   end
 end
 
