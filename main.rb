@@ -19,7 +19,7 @@ Telegram::Bot::Client.run(token) do |bot|
         	                                                      ")
 	    when 'ola','oi','hello','eai', 'olá'
 	    	bot.api.send_message(chat_id: message.chat.id, text: "Olá #{message.from.first_name}! Eu sou o SWbot. Posso te ajudar em algo?
-	    	                                                     --Comandos Básicos--
+	    	                                                      Comandos Básicos
         	                                                      moodle
         	                                                      senha moodle
         	                                                      data prova
