@@ -7,8 +7,8 @@ token = ENV['TOKEN_TELEGRAM']
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
 	    case message.text
-        when 'start', '/start', 'iniciar','comandos','comando', 'Comando'
-        	bot.api.send_message(chat_id: message.chat.id, text: "--Comandos Básicos--
+        when 'start', 'Start', 'Iniciar','iniciar','comandos','comando', 'Comando','Comandos'
+        	bot.api.send_message(chat_id: message.chat.id, text: "Comandos Básicos
         	                                                      moodle
         	                                                      senha moodle
         	                                                      data prova
@@ -17,7 +17,7 @@ Telegram::Bot::Client.run(token) do |bot|
         	                                                      forma avaliacao
         	                                                      projeto final
         	                                                      ")
-	    when 'ola','oi','hello','eai', 'olá'
+	    when 'ola','oi','hello','eai', 'olá','Ola','Oi','Hello','Eai', 'Olá'
 	    	bot.api.send_message(chat_id: message.chat.id, text: "Olá #{message.from.first_name}! Eu sou o SWbot. Posso te ajudar em algo?
 	    	                                                      Comandos Básicos
         	                                                      moodle
@@ -27,7 +27,7 @@ Telegram::Bot::Client.run(token) do |bot|
         	                                                      nota
         	                                                      forma avaliacao
         	                                                      projeto final")
-	    when 'stop', 'tchau', 'exit','sair','ok', 'obrigado'
+	    when 'stop', 'tchau', 'exit','sair','ok', 'obrigado','Stop', 'Tchau', 'Exit','Sair','Ok', 'Obrigado'
 	      bot.api.send_message(chat_id: message.chat.id, text: "Tchau #{message.from.first_name}! Até a próxima.")
 	    when 'localizacao'
 	    	 question = 'londes é a capital de qual país?'
@@ -66,13 +66,20 @@ Telegram::Bot::Client.run(token) do |bot|
 	    	bot.api.send_message(chat_id: message.chat.id, text: "Nossa avalição será na data 09/01/2017, no laboratorio 143")
 	    when 'forma avaliacao','Forma avaliacao', 'forma avaliação', 'Forma avaliação'
 	    	bot.api.send_message(chat_id: message.chat.id, text: "Como avaliação para nossa disciplina utilizaremos de:
-	    	                                                       * Whorkshop+Atividades
-	    	                                                       * Avaliação
-	    	                                                       * Projeto Final") 	
+	    	                                                      Whorkshop+Atividades
+	    	                                                      Avaliação
+	    	                                                      Projeto Final") 	
 	    when 'nota', 'Nota', 'notas', 'Notas'
 	        bot.api.send_message(chat_id: message.chat.id, text: "Em configuração")
 	    when 'projeto final', 'Projeto final'
-	        bot.api.send_message(chat_id: message.chat.id, text: "Em configuração")    
+	   		    kb = [
+				      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'moodle', url: 'https://docs.google.com/spreadsheets/d/1D7jgU9kQlxgsKXB9su8eIJZNVUdKvgEhqqr9RvvyZkk/edit#gid=0')
+		         ]
+		    markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
+	        bot.api.send_message(chat_id: message.chat.id, text: 'A lista com titulos do projeto final se encontra no link', reply_markup: markup)
+	  
+	    when 'senha moodle', 'Senha moodle'
+	        bot.api.send_message(chat_id: message.chat.id, text: "A senha para acesso ao moodle da disciplina é sisweb. Acesse o curso e vamos aos estudos! :)")   
 	    end
   end
 end
