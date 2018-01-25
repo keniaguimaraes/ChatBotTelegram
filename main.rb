@@ -95,18 +95,18 @@ Telegram::Bot::Client.run(token) do |bot|
 		        markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
 	            bot.api.send_message(chat_id: message.chat.id, text: 'A lista com titulos do projeto final se encontra no link', reply_markup: markup)
 	
-		when 'senha moodle', 'Senha moodle'
+		when 'Senha moodle','senha moodle'
 		        bot.api.send_message(chat_id: message.chat.id, text: "A senha para acesso ao moodle da disciplina é sisweb. Acesse o curso e vamos aos estudos! :) ")
 	    when 'projeto final descricao', 'Projeto final descricao'
 	        bot.api.send_message(chat_id: message.chat.id, text: "O projeto final da disciplina consiste na escolha de um tema livre e deverá ser desenvolvido um Sistema Web.
 	                                                              O projeto poderá ser desenvolvido individualmente, em dupla ou trio (quanto mais alunos na equipe, mais criteriosa será a avaliação).
 	                                                              Cada equipe/aluno escolherá a arquitetura e a tech stack da solução.
 	                                                              A aprovação do tema será feita pela professora a partir de uma conversa com a equipe/aluno, baseado nos critérios de ser relevante e/ou inovador.  ")
-	    when 'projeto final prazo', ' Projeto final prazo'
+	    when 'projeto final prazo', 'Projeto final prazo'
 	         bot.api.send_message(chat_id: message.chat.id, text: "O link do repositório do projeto e a apresentação do sistema  deverão ser enviados até o dia 16/02/2018 no e-mail da professora. As apresentações dos projetos serão nos dias 16 e 21 de fevereiro de 2018.")
-	    when 'projeto final itens', ' Projeto final itens'
+	    when 'projeto final itens', 'Projeto final itens'
 	            bot.api.send_message(chat_id: message.chat.id, text: "Deverão ser entregues o link do repositório do aplicação e apresentação que será utilizada para demonstração do sistema.")
-	    when 'projeto final avaliacao', ' Projeto final avaliacao'
+	    when 'projeto final avaliacao', 'Projeto final avaliacao'
 	          bot.api.send_message(chat_id: message.chat.id, text: "O projeto final será apresentado para toda a turma nos dias 16 e 21 de fevereiro. Após a apresentação serão realizadas perguntas sobre o código pela professora.")
 	    end
   end
