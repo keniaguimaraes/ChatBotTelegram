@@ -88,7 +88,7 @@ Telegram::Bot::Client.run(token) do |bot|
 		        markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
 		        bot.api.send_message(chat_id: message.chat.id, text: 'A planilha de notas encontra no link', reply_markup: markup)
 		
-		when '  projeto final lista tema', 'Projeto final lista tema'
+		when '  projeto final lista projetos', 'Projeto final lista projetos'
 	   		    kb = [
 				      Telegram::Bot::Types::InlineKeyboardButton.new(text: 'lista temas', url: 'https://docs.google.com/spreadsheets/d/1D7jgU9kQlxgsKXB9su8eIJZNVUdKvgEhqqr9RvvyZkk/edit#gid=0')
 		         ]
@@ -105,7 +105,7 @@ Telegram::Bot::Client.run(token) do |bot|
 	    when 'projeto final prazo', 'Projeto final prazo'
 	         bot.api.send_message(chat_id: message.chat.id, text: "O link do repositório do projeto e a apresentação do sistema  deverão ser enviados até o dia 16/02/2018 no e-mail da professora. As apresentações dos projetos serão nos dias 16 e 21 de fevereiro de 2018.")
 	    when 'projeto final itens', 'Projeto final itens'
-	            bot.api.send_message(chat_id: message.chat.id, text: "Deverão ser entregues o link do repositório do aplicação e apresentação que será utilizada para demonstração do sistema.")
+	            bot.api.send_message(chat_id: message.chat.id, text: "Deverão ser entregues o link do repositório da aplicação e apresentação que será utilizada para demonstração do sistema.")
 	    when 'projeto final avaliacao', 'Projeto final avaliacao'
 	          bot.api.send_message(chat_id: message.chat.id, text: "O projeto final será apresentado para toda a turma nos dias 16 e 21 de fevereiro. Após a apresentação serão realizadas perguntas sobre o código pela professora.")
 	    end
